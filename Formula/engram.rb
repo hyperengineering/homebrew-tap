@@ -5,43 +5,236 @@
 class Engram < Formula
   desc "Centralized lore persistence and synchronization service"
   homepage "https://github.com/hyperengineering/engram"
-  version "1.1.1"
+  version "1.1.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hyperengineering/engram/releases/download/v1.1.1/engram_darwin_amd64.tar.gz"
-      sha256 "9662c19d973e8316131ddaa3cb78950b6034f57dd6bc51f7efe4342140ef9935"
+      url "https://github.com/hyperengineering/engram/releases/download/v1.1.2/engram_darwin_amd64.tar.gz"
+      sha256 "72109dfcf1695429685cb7722cb2da43812026bd4eea0b9593e8ef1a79578e17"
 
       def install
         bin.install "engram"
+        # Install wrapper script
+        (bin/"engram-wrapper").write <<~EOS
+          #!/bin/bash
+          set -e
+          ENV_FILE="#{etc}/engram/environment"
+          if [[ -f "$ENV_FILE" ]]; then
+            set -a
+            source "$ENV_FILE"
+            set +a
+          fi
+          exec "#{bin}/engram" "$@"
+        EOS
+        (bin/"engram-wrapper").chmod 0755
+
+        # Create config directory and environment template
+        (etc/"engram").mkpath
+        (var/"engram").mkpath
+        (var/"log/engram").mkpath
+
+        # Install environment template (don't overwrite existing)
+        unless (etc/"engram/environment").exist?
+          (etc/"engram/environment").write <<~EOS
+            # Engram Environment Variables
+            # Permissions: 600 (chmod 600 #{etc}/engram/environment)
+
+            # Required: API key for authenticating clients
+            # Generate: openssl rand -hex 32
+            ENGRAM_API_KEY=
+
+            # Required: OpenAI API key for embedding generation
+            # Get from: https://platform.openai.com/api-keys
+            OPENAI_API_KEY=
+
+            # Optional: Override default port (8080)
+            # ENGRAM_PORT=8080
+
+            # Optional: Override default host (localhost)
+            # ENGRAM_HOST=0.0.0.0
+          EOS
+          (etc/"engram/environment").chmod 0600
+        end
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hyperengineering/engram/releases/download/v1.1.1/engram_darwin_arm64.tar.gz"
-      sha256 "b06bd2d06142c1d042e7535f635a51e12c9d14a890424ec74f01e7260e053c63"
+      url "https://github.com/hyperengineering/engram/releases/download/v1.1.2/engram_darwin_arm64.tar.gz"
+      sha256 "96de6b89e17dc4997fa6ec96f100b0e12606101506ce139e0f4ae5eb402f628a"
 
       def install
         bin.install "engram"
+        # Install wrapper script
+        (bin/"engram-wrapper").write <<~EOS
+          #!/bin/bash
+          set -e
+          ENV_FILE="#{etc}/engram/environment"
+          if [[ -f "$ENV_FILE" ]]; then
+            set -a
+            source "$ENV_FILE"
+            set +a
+          fi
+          exec "#{bin}/engram" "$@"
+        EOS
+        (bin/"engram-wrapper").chmod 0755
+
+        # Create config directory and environment template
+        (etc/"engram").mkpath
+        (var/"engram").mkpath
+        (var/"log/engram").mkpath
+
+        # Install environment template (don't overwrite existing)
+        unless (etc/"engram/environment").exist?
+          (etc/"engram/environment").write <<~EOS
+            # Engram Environment Variables
+            # Permissions: 600 (chmod 600 #{etc}/engram/environment)
+
+            # Required: API key for authenticating clients
+            # Generate: openssl rand -hex 32
+            ENGRAM_API_KEY=
+
+            # Required: OpenAI API key for embedding generation
+            # Get from: https://platform.openai.com/api-keys
+            OPENAI_API_KEY=
+
+            # Optional: Override default port (8080)
+            # ENGRAM_PORT=8080
+
+            # Optional: Override default host (localhost)
+            # ENGRAM_HOST=0.0.0.0
+          EOS
+          (etc/"engram/environment").chmod 0600
+        end
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hyperengineering/engram/releases/download/v1.1.1/engram_linux_amd64.tar.gz"
-      sha256 "76ac70f4f47cda20ab1aa6789340fa582f5a26c96c88007a042feef3ce0acf15"
+      url "https://github.com/hyperengineering/engram/releases/download/v1.1.2/engram_linux_amd64.tar.gz"
+      sha256 "d4ecf12ff8074a296d02a466db21d7bdfda3f85d42dd3ef0f2e0b6ac7a2e5400"
       def install
         bin.install "engram"
+        # Install wrapper script
+        (bin/"engram-wrapper").write <<~EOS
+          #!/bin/bash
+          set -e
+          ENV_FILE="#{etc}/engram/environment"
+          if [[ -f "$ENV_FILE" ]]; then
+            set -a
+            source "$ENV_FILE"
+            set +a
+          fi
+          exec "#{bin}/engram" "$@"
+        EOS
+        (bin/"engram-wrapper").chmod 0755
+
+        # Create config directory and environment template
+        (etc/"engram").mkpath
+        (var/"engram").mkpath
+        (var/"log/engram").mkpath
+
+        # Install environment template (don't overwrite existing)
+        unless (etc/"engram/environment").exist?
+          (etc/"engram/environment").write <<~EOS
+            # Engram Environment Variables
+            # Permissions: 600 (chmod 600 #{etc}/engram/environment)
+
+            # Required: API key for authenticating clients
+            # Generate: openssl rand -hex 32
+            ENGRAM_API_KEY=
+
+            # Required: OpenAI API key for embedding generation
+            # Get from: https://platform.openai.com/api-keys
+            OPENAI_API_KEY=
+
+            # Optional: Override default port (8080)
+            # ENGRAM_PORT=8080
+
+            # Optional: Override default host (localhost)
+            # ENGRAM_HOST=0.0.0.0
+          EOS
+          (etc/"engram/environment").chmod 0600
+        end
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hyperengineering/engram/releases/download/v1.1.1/engram_linux_arm64.tar.gz"
-      sha256 "47a36caa3c94b479b07d6d1590d9afbbdd9991f672aad3549c997277f9f46b1f"
+      url "https://github.com/hyperengineering/engram/releases/download/v1.1.2/engram_linux_arm64.tar.gz"
+      sha256 "2fe7d1953706951b3e98cfb3142e0e0941cdd28861c69fb63fa183448dd4974e"
       def install
         bin.install "engram"
+        # Install wrapper script
+        (bin/"engram-wrapper").write <<~EOS
+          #!/bin/bash
+          set -e
+          ENV_FILE="#{etc}/engram/environment"
+          if [[ -f "$ENV_FILE" ]]; then
+            set -a
+            source "$ENV_FILE"
+            set +a
+          fi
+          exec "#{bin}/engram" "$@"
+        EOS
+        (bin/"engram-wrapper").chmod 0755
+
+        # Create config directory and environment template
+        (etc/"engram").mkpath
+        (var/"engram").mkpath
+        (var/"log/engram").mkpath
+
+        # Install environment template (don't overwrite existing)
+        unless (etc/"engram/environment").exist?
+          (etc/"engram/environment").write <<~EOS
+            # Engram Environment Variables
+            # Permissions: 600 (chmod 600 #{etc}/engram/environment)
+
+            # Required: API key for authenticating clients
+            # Generate: openssl rand -hex 32
+            ENGRAM_API_KEY=
+
+            # Required: OpenAI API key for embedding generation
+            # Get from: https://platform.openai.com/api-keys
+            OPENAI_API_KEY=
+
+            # Optional: Override default port (8080)
+            # ENGRAM_PORT=8080
+
+            # Optional: Override default host (localhost)
+            # ENGRAM_HOST=0.0.0.0
+          EOS
+          (etc/"engram/environment").chmod 0600
+        end
       end
     end
+  end
+
+  def caveats
+    <<~EOS
+      To complete setup:
+
+        1. Configure your API keys:
+           nano #{etc}/engram/environment
+
+           Set ENGRAM_API_KEY and OPENAI_API_KEY
+
+        2. Start the service:
+           brew services start engram
+
+        3. Verify it's running:
+           curl http://localhost:8080/api/v1/health
+
+      Configuration: #{etc}/engram/environment
+      Data:          #{var}/engram/
+      Logs:          #{var}/log/engram/engram.log
+    EOS
+  end
+
+  service do
+    run [opt_bin/"engram-wrapper"]
+    working_dir var/"engram"
+    log_path var/"log/engram/engram.log"
+    error_log_path var/"log/engram/engram.log"
+    keep_alive true
   end
 
   test do
