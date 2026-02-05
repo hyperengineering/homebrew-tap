@@ -5,21 +5,21 @@
 class Recall < Formula
   desc "CLI for managing experiential lore from AI agent workflows"
   homepage "https://github.com/hyperengineering/recall"
-  version "1.2.1"
+  version "1.2.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hyperengineering/recall/releases/download/v1.2.1/recall_1.2.1_darwin_amd64.tar.gz"
-      sha256 "65397edf62dfcc90b9ffc5f1fc722c7efc4ee6eb342ac2813d29651525110f89"
+      url "https://github.com/hyperengineering/recall/releases/download/v1.2.2/recall_1.2.2_darwin_amd64.tar.gz"
+      sha256 "553f91c40d98b560d8d6e6d18b94655f166db418cb458d67e6d16035df04fb1d"
 
       def install
         bin.install "recall"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hyperengineering/recall/releases/download/v1.2.1/recall_1.2.1_darwin_arm64.tar.gz"
-      sha256 "16fa1ec1589dc65966d4cd7777428e952939b91ff373596872fc765c4c3f1a63"
+      url "https://github.com/hyperengineering/recall/releases/download/v1.2.2/recall_1.2.2_darwin_arm64.tar.gz"
+      sha256 "53265bfb302af473ae94b1ac21486c1cc0a5c8741c334defd0abe2adaf234005"
 
       def install
         bin.install "recall"
@@ -29,15 +29,15 @@ class Recall < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hyperengineering/recall/releases/download/v1.2.1/recall_1.2.1_linux_amd64.tar.gz"
-      sha256 "78c060207c137082f1d7ad4df97557085cef2c82d1e5d404cd7bb7b588744c40"
+      url "https://github.com/hyperengineering/recall/releases/download/v1.2.2/recall_1.2.2_linux_amd64.tar.gz"
+      sha256 "94a77210940e78f734bbd5260bd9303b27fed526f47a5756dbd9d6a15d041388"
       def install
         bin.install "recall"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hyperengineering/recall/releases/download/v1.2.1/recall_1.2.1_linux_arm64.tar.gz"
-      sha256 "ebcd118bff7730f0759061b21fe88200f638797d02730dbded2dfb35ba5eb3fd"
+      url "https://github.com/hyperengineering/recall/releases/download/v1.2.2/recall_1.2.2_linux_arm64.tar.gz"
+      sha256 "4f12523e21ffbab1f6b9000efbb0bc535fa05835b35974c7457abe8c0324cd46"
       def install
         bin.install "recall"
       end
