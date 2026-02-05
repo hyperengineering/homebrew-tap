@@ -11,7 +11,7 @@ class Recall < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/hyperengineering/recall/releases/download/v1.2.1/recall_1.2.1_darwin_amd64.tar.gz"
-      sha256 "f9117c1919fe3ea740314af3587d51ea0e1e62f3c04794289a167b9df1a78644"
+      sha256 "15a3e0cc26646fe8ccaf79f511b208b0c02d3f3295c2b93913eb111b53c31f87"
 
       def install
         bin.install "recall"
@@ -19,7 +19,7 @@ class Recall < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/hyperengineering/recall/releases/download/v1.2.1/recall_1.2.1_darwin_arm64.tar.gz"
-      sha256 "f696040ec4623c6f5538f9935a47a39747a1d9b073912451c6ffd9ab82b15a0a"
+      sha256 "a631bfe50aebf31525e3a44857e8770a4885c090657cf201616998b3110d87d4"
 
       def install
         bin.install "recall"
@@ -30,14 +30,14 @@ class Recall < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/hyperengineering/recall/releases/download/v1.2.1/recall_1.2.1_linux_amd64.tar.gz"
-      sha256 "b7db388e38b5236534c05a5a32a8481f80204b407b00e58d0816244dec1733f7"
+      sha256 "125b55a2cf799537e03d16e9fc0810479ea2729589c25b331a25c8946a14a957"
       def install
         bin.install "recall"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/hyperengineering/recall/releases/download/v1.2.1/recall_1.2.1_linux_arm64.tar.gz"
-      sha256 "2e71b741fb9ab72a1ffa8433f9bfd1ff51f47af89798010619a3529c8c0d6ba7"
+      sha256 "bcf0200dd63cb6c659a47f8f13e9a8c2496bcbd3270948b57d5394ec02121333"
       def install
         bin.install "recall"
       end
