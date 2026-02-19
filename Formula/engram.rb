@@ -5,13 +5,13 @@
 class Engram < Formula
   desc "Centralized lore persistence and synchronization service"
   homepage "https://github.com/hyperengineering/engram"
-  version "1.4.1"
+  version "1.4.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hyperengineering/engram/releases/download/v1.4.1/engram_darwin_amd64.tar.gz"
-      sha256 "5d92ef654680450dfad5a227812062d394094d590e04b770da718fe124db743b"
+      url "https://github.com/hyperengineering/engram/releases/download/v1.4.2/engram_darwin_amd64.tar.gz"
+      sha256 "a930b96e7e836372d88279a5c5abb8d78bdc6aba0ab3c70cc5fec2862b03a74d"
 
       def install
         bin.install "engram"
@@ -65,8 +65,8 @@ class Engram < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hyperengineering/engram/releases/download/v1.4.1/engram_darwin_arm64.tar.gz"
-      sha256 "29b53a483e5ce83555e3fbbb194d7dd18a1b4c8c5a76b0dcdfa3ed89069bbac0"
+      url "https://github.com/hyperengineering/engram/releases/download/v1.4.2/engram_darwin_arm64.tar.gz"
+      sha256 "7c3cfa89acab61e65990df0e42ce3e62cf8a62f38836593f72ae18b3eba70c65"
 
       def install
         bin.install "engram"
@@ -123,8 +123,8 @@ class Engram < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hyperengineering/engram/releases/download/v1.4.1/engram_linux_amd64.tar.gz"
-      sha256 "b3af611716f7d84b1d2188181f7b44e95adeb16ea4f7f609d145257a20331727"
+      url "https://github.com/hyperengineering/engram/releases/download/v1.4.2/engram_linux_amd64.tar.gz"
+      sha256 "0e6c47861765e0db76c08ae068b82a041b5ad4eaec86f958af5cd8fe23b5fbf7"
       def install
         bin.install "engram"
         # Install wrapper script
@@ -177,8 +177,8 @@ class Engram < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hyperengineering/engram/releases/download/v1.4.1/engram_linux_arm64.tar.gz"
-      sha256 "8c88f0a1825d9a882a7441f2d3252d058568c8f8d01b0495291fc00cb630adce"
+      url "https://github.com/hyperengineering/engram/releases/download/v1.4.2/engram_linux_arm64.tar.gz"
+      sha256 "890e39fa1ae74bbc7f40b55c88baf679fd9d031427378343e0ab26285484273e"
       def install
         bin.install "engram"
         # Install wrapper script
