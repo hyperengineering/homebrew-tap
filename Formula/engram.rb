@@ -5,13 +5,13 @@
 class Engram < Formula
   desc "Centralized lore persistence and synchronization service"
   homepage "https://github.com/hyperengineering/engram"
-  version "1.3.2"
+  version "1.4.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hyperengineering/engram/releases/download/v1.3.2/engram_darwin_amd64.tar.gz"
-      sha256 "515eba922c572a9df15d3156cc997aebb6fd9a98e88469c593e5b9a9a4432404"
+      url "https://github.com/hyperengineering/engram/releases/download/v1.4.0/engram_darwin_amd64.tar.gz"
+      sha256 "b96b52ffad6b70423d508f047fd67c7b7b907d1b3817f5b6ab93f6e7fa520320"
 
       def install
         bin.install "engram"
@@ -53,14 +53,20 @@ class Engram < Formula
 
             # Optional: Override default host (localhost)
             # ENGRAM_HOST=0.0.0.0
+
+            # Optional: S3-compatible storage for snapshot distribution
+            # ENGRAM_SNAPSHOT_BUCKET=
+            # ENGRAM_S3_ENDPOINT=
+            # ENGRAM_S3_ACCESS_KEY=
+            # ENGRAM_S3_SECRET_KEY=
           EOS
           (etc/"engram/environment").chmod 0600
         end
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hyperengineering/engram/releases/download/v1.3.2/engram_darwin_arm64.tar.gz"
-      sha256 "bb29e55e5ca4b3976c4655aaa4a6763acfa20ba0589ed1374a24612c0dece0c3"
+      url "https://github.com/hyperengineering/engram/releases/download/v1.4.0/engram_darwin_arm64.tar.gz"
+      sha256 "bf2cd700572f3986650115876453d8d147cec820288e5f3b4c0d80bee59d02c1"
 
       def install
         bin.install "engram"
@@ -102,6 +108,12 @@ class Engram < Formula
 
             # Optional: Override default host (localhost)
             # ENGRAM_HOST=0.0.0.0
+
+            # Optional: S3-compatible storage for snapshot distribution
+            # ENGRAM_SNAPSHOT_BUCKET=
+            # ENGRAM_S3_ENDPOINT=
+            # ENGRAM_S3_ACCESS_KEY=
+            # ENGRAM_S3_SECRET_KEY=
           EOS
           (etc/"engram/environment").chmod 0600
         end
@@ -111,8 +123,8 @@ class Engram < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hyperengineering/engram/releases/download/v1.3.2/engram_linux_amd64.tar.gz"
-      sha256 "d49d38a9530bf812394d900105288b7c56864f0afa2cb7680ed696d29fe015de"
+      url "https://github.com/hyperengineering/engram/releases/download/v1.4.0/engram_linux_amd64.tar.gz"
+      sha256 "730d164c198d33fb3e0f1bb53e769068bb7866ff085314364ac3163452e1835c"
       def install
         bin.install "engram"
         # Install wrapper script
@@ -153,14 +165,20 @@ class Engram < Formula
 
             # Optional: Override default host (localhost)
             # ENGRAM_HOST=0.0.0.0
+
+            # Optional: S3-compatible storage for snapshot distribution
+            # ENGRAM_SNAPSHOT_BUCKET=
+            # ENGRAM_S3_ENDPOINT=
+            # ENGRAM_S3_ACCESS_KEY=
+            # ENGRAM_S3_SECRET_KEY=
           EOS
           (etc/"engram/environment").chmod 0600
         end
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hyperengineering/engram/releases/download/v1.3.2/engram_linux_arm64.tar.gz"
-      sha256 "2f498a458499ca238d0aecfca47343425df6fdbf6b88fce1a0b450ec7dd4ef20"
+      url "https://github.com/hyperengineering/engram/releases/download/v1.4.0/engram_linux_arm64.tar.gz"
+      sha256 "258c9d74b6a2247b4310286424ed96a608b3ae7d399c8c2a3cc5ec05404cd28d"
       def install
         bin.install "engram"
         # Install wrapper script
@@ -201,6 +219,12 @@ class Engram < Formula
 
             # Optional: Override default host (localhost)
             # ENGRAM_HOST=0.0.0.0
+
+            # Optional: S3-compatible storage for snapshot distribution
+            # ENGRAM_SNAPSHOT_BUCKET=
+            # ENGRAM_S3_ENDPOINT=
+            # ENGRAM_S3_ACCESS_KEY=
+            # ENGRAM_S3_SECRET_KEY=
           EOS
           (etc/"engram/environment").chmod 0600
         end
