@@ -14,12 +14,13 @@ brew install recall
 | Formula | Description |
 |---------|-------------|
 | `recall` | CLI for managing experiential lore from AI agent workflows |
+| `swarm` | Swarm CLI — provision VMs and deploy devcontainers |
 
 ## Updating
 
 ```bash
 brew update
-brew upgrade recall
+brew upgrade recall swarm
 ```
 
 ## Troubleshooting
@@ -50,10 +51,13 @@ brew untap hyperengineering/tap
 
 ## About
 
-This tap is automatically updated by [GoReleaser](https://goreleaser.com/) when new versions of Recall are released.
+This tap is automatically updated by [GoReleaser](https://goreleaser.com/) when new versions of Recall and Swarm are released.
 
 For issues with the Engram itself, please file issues at:
 https://github.com/hyperengineering/engram/issues
 
 For issues with the Recall CLI itself, please file issues at:
 https://github.com/hyperengineering/recall/issues
+
+For issues with the Swarm CLI itself, please file issues at:
+https://github.com/hyperengineering/swarm/issues
