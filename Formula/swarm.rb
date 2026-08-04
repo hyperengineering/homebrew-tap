@@ -5,21 +5,21 @@
 class Swarm < Formula
   desc "Swarm CLI — provision VMs and deploy devcontainers"
   homepage "https://github.com/hyperengineering/swarm"
-  version "0.8.0-beta.4"
+  version "0.8.0-beta.5"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hyperengineering/homebrew-tap/raw/main/binaries/swarm_0.8.0-beta.4_darwin_amd64.tar.gz"
-      sha256 "2a1c55063d5157f09e92dfccedfbff91a8ffdff6cf76fc26c1f67c608dd103fe"
+      url "https://github.com/hyperengineering/homebrew-tap/raw/main/binaries/swarm_0.8.0-beta.5_darwin_amd64.tar.gz"
+      sha256 "253ba276af5d6110357f361b8417a81cd6f35b27c21baf30ed67c0e7e0c94985"
 
       define_method(:install) do
         bin.install "swarm"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hyperengineering/homebrew-tap/raw/main/binaries/swarm_0.8.0-beta.4_darwin_arm64.tar.gz"
-      sha256 "644408e57fd0d2917d07aef08b3cf2ed3ba1c3b7df1bebb9df27e0e6e09ae0bd"
+      url "https://github.com/hyperengineering/homebrew-tap/raw/main/binaries/swarm_0.8.0-beta.5_darwin_arm64.tar.gz"
+      sha256 "229579ef746896b9b7000152cfd94f463d66f231eecd6a5a6fc9a2813c2480d1"
 
       define_method(:install) do
         bin.install "swarm"
@@ -29,15 +29,15 @@ class Swarm < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hyperengineering/homebrew-tap/raw/main/binaries/swarm_0.8.0-beta.4_linux_amd64.tar.gz"
-      sha256 "76b1f0c1a195a87602b9972c9ae7f91b9a82a2f4c084288b970da337d9635783"
+      url "https://github.com/hyperengineering/homebrew-tap/raw/main/binaries/swarm_0.8.0-beta.5_linux_amd64.tar.gz"
+      sha256 "58079cb054d176509777487ca5f3e0ade7621d6da7ef0aeba64bdb8506e576c2"
       define_method(:install) do
         bin.install "swarm"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hyperengineering/homebrew-tap/raw/main/binaries/swarm_0.8.0-beta.4_linux_arm64.tar.gz"
-      sha256 "6757c027f1a2c5ce64ddf580ddc46910a8d10f6aba5a9de1b3e51770b036d7a9"
+      url "https://github.com/hyperengineering/homebrew-tap/raw/main/binaries/swarm_0.8.0-beta.5_linux_arm64.tar.gz"
+      sha256 "d67b5be7415a8f2f57d77929db4ba3a760a76454484da39c971bf773bdfdf7bc"
       define_method(:install) do
         bin.install "swarm"
       end
